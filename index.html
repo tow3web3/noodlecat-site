@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NoodleCat — $NOODLE</title>
+<meta name="description" content="The first token ever cooked on Noodlez. Half cat, half noodle, 100% degen.">
+<link rel="canonical" href="https://noodlezcat.lol/">
+<link rel="icon" href="/favicon.png">
+<meta property="og:title" content="NoodleCat — $NOODLE">
+<meta property="og:description" content="The first token ever cooked on Noodlez. Half cat, half noodle, 100% degen.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://noodlezcat.lol/">
+<meta property="og:image" content="https://noodlezcat.lol/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://noodlezcat.lol/og.png">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Baloo+2:wght@500;700;800&display=swap">
+<style>
+/* Layout: acid-terminal degen world — black↔acid full-width bands, the cat everywhere, sticker cards, marquee ribbons. Single committed theme. */
+:root{
+  --acid:#CDF02E;
+  --acid-deep:#A3C414;
+  --ink:#131608;
+  --bg:#0E1106;
+  --card:#1A2009;
+  --cream:#F7F3DC;
+  --scallion:#4F9C3C;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:"Baloo 2","Comic Sans MS",system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.5;
+  overflow-x:hidden;
+}
+h1,h2,h3{
+  font-family:"Lilita One","Baloo 2",system-ui,sans-serif;
+  font-weight:400;
+  line-height:1.02;
+  text-wrap:balance;
+  margin:0;
+}
+p{margin:0}
+img{max-width:100%}
+.band{width:100%}
+.band-inner{
+  max-width:1060px;
+  margin:0 auto;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));
+  padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-block:72px;
+}
+.eyebrow{
+  display:inline-block;
+  font-family:"Lilita One",sans-serif;
+  font-size:14px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  background:var(--ink);
+  color:var(--acid);
+  border:3px solid var(--acid);
+  border-radius:999px;
+  padding:6px 16px;
+  box-shadow:4px 4px 0 var(--acid-deep);
+  transform:rotate(-2deg);
+}
+.on-acid .eyebrow{
+  background:var(--acid);
+  color:var(--ink);
+  border-color:var(--ink);
+  box-shadow:4px 4px 0 var(--ink);
+}
+
+/* ===== marquee ===== */
+.marquee{
+  background:var(--acid);
+  border-block:4px solid var(--ink);
+  overflow:hidden;
+  white-space:nowrap;
+  padding-block:10px;
+}
+.marquee .track{display:inline-block;animation:scroll 22s linear infinite}
+.marquee span{
+  font-family:"Lilita One",sans-serif;
+  font-size:18px;
+  letter-spacing:.06em;
+  color:var(--ink);
+  margin:0 18px;
+  vertical-align:middle;
+}
+.marquee img{height:30px;width:auto;vertical-align:middle;margin:0 6px}
+.marquee.dark{background:var(--ink);border-color:var(--acid)}
+.marquee.dark span{color:var(--acid)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== hero ===== */
+.hero{background:var(--bg);position:relative}
+.hero .band-inner{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:40px;
+  align-items:center;
+  padding-block:64px;
+}
+.hero h1{
+  font-size:clamp(58px,9.5vw,118px);
+  color:var(--acid);
+  text-shadow:0 0 34px rgba(205,240,46,.35), 6px 6px 0 var(--ink);
+  letter-spacing:.01em;
+}
+.hero .ticker{
+  font-family:"Lilita One",sans-serif;
+  font-size:clamp(24px,3.4vw,36px);
+  color:var(--cream);
+  margin-top:6px;
+}
+.hero .ticker b{
+  background:var(--acid);
+  color:var(--ink);
+  border-radius:10px;
+  padding:2px 12px;
+  display:inline-block;
+  transform:rotate(-1.5deg);
+}
+.hero .tag{
+  margin-top:18px;
+  font-size:19px;
+  font-weight:700;
+  color:var(--cream);
+  max-width:36ch;
+}
+.hero .tag b{color:var(--acid)}
+.mascot-wrap{position:relative;display:flex;justify-content:center}
+.mascot-main{
+  width:min(100%,440px);
+  height:auto;
+  filter:drop-shadow(0 0 40px rgba(205,240,46,.30)) drop-shadow(10px 14px 0 rgba(0,0,0,.45));
+  animation:bob 4s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-14px) rotate(2deg)}}
+.badge-genesis{
+  position:absolute;
+  top:-4px;right:2%;
+  background:var(--acid);
+  color:var(--ink);
+  border:3px solid var(--ink);
+  border-radius:999px;
+  padding:10px 16px;
+  font-family:"Lilita One",sans-serif;
+  font-size:15px;
+  box-shadow:4px 4px 0 var(--acid-deep);
+  transform:rotate(8deg);
+  animation:wiggle 3s ease-in-out infinite;
+}
+@keyframes wiggle{0%,100%{transform:rotate(6deg)}50%{transform:rotate(11deg)}}
+
+/* CA pill */
+.ca-box{margin-top:26px;display:flex;flex-wrap:wrap;align-items:stretch;gap:10px}
+.ca-pill{
+  flex:1 1 260px;
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  background:var(--card);
+  color:var(--acid);
+  border:3px solid var(--acid);
+  border-radius:14px;
+  padding:12px 16px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:15px;
+  box-shadow:5px 5px 0 var(--acid-deep);
+}
+.ca-pill .lbl{font-family:"Lilita One",sans-serif;color:var(--cream);letter-spacing:.08em;flex:none}
+.ca-pill .val{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:"Lilita One",sans-serif;
+  font-size:17px;
+  letter-spacing:.04em;
+  color:var(--ink);
+  background:var(--acid);
+  border:3px solid var(--ink);
+  border-radius:14px;
+  padding:12px 22px;
+  cursor:pointer;
+  text-decoration:none;
+  box-shadow:5px 5px 0 var(--acid-deep);
+  transition:transform .12s, box-shadow .12s;
+  user-select:none;
+}
+.btn:hover{transform:translate(2px,2px);box-shadow:3px 3px 0 var(--acid-deep)}
+.btn:active{transform:translate(5px,5px);box-shadow:0 0 0 var(--acid-deep)}
+.btn:focus-visible{outline:4px solid var(--cream);outline-offset:2px}
+.btn.ghost{background:var(--card);color:var(--acid);border-color:var(--acid)}
+.btn.cream{background:var(--cream)}
+.btn-row{margin-top:20px;display:flex;flex-wrap:wrap;gap:14px}
+
+/* ===== sections ===== */
+.on-acid{background:var(--acid);color:var(--ink)}
+.sec-head{text-align:center;margin-bottom:44px}
+.sec-head h2{font-size:clamp(38px,6vw,64px);margin-top:16px}
+.on-acid .sec-head h2{color:var(--ink)}
+.on-dark .sec-head h2{color:var(--acid);text-shadow:4px 4px 0 var(--ink)}
+.sec-head .sub{font-weight:700;opacity:.8;margin-top:10px;max-width:52ch;margin-inline:auto}
+
+/* lore cards */
+.lore-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.lore-card{
+  background:var(--cream);
+  color:var(--ink);
+  border:3px solid var(--ink);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:7px 7px 0 var(--ink);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  min-width:0;
+}
+.lore-card:nth-child(odd){transform:rotate(-1.2deg)}
+.lore-card:nth-child(even){transform:rotate(1.2deg)}
+.lore-card .num{
+  font-family:"Lilita One",sans-serif;
+  font-size:13px;
+  letter-spacing:.12em;
+  background:var(--ink);
+  color:var(--acid);
+  border-radius:999px;
+  padding:4px 12px;
+  align-self:flex-start;
+}
+.lore-card h3{font-size:22px}
+.lore-card p{font-weight:600;font-size:15.5px}
+.lore-card .pic{align-self:center;width:92px;height:auto}
+.lore-card:nth-child(1) .pic{transform:rotate(-8deg)}
+.lore-card:nth-child(2) .pic{transform:rotate(6deg) scaleX(-1)}
+.lore-card:nth-child(3) .pic{transform:rotate(-4deg) scale(1.08)}
+.lore-card:nth-child(4) .pic{transform:rotate(9deg)}
+
+/* ===== noodlenomics ===== */
+.on-dark{background:var(--bg);color:var(--cream)}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px}
+.stat{
+  background:var(--card);
+  border:3px solid var(--acid);
+  border-radius:18px;
+  padding:24px;
+  box-shadow:6px 6px 0 var(--acid-deep);
+  min-width:0;
+}
+.stat .k{
+  font-family:"Lilita One",sans-serif;
+  font-size:13px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--acid);
+}
+.stat .v{
+  font-family:"Lilita One",sans-serif;
+  font-size:clamp(26px,3vw,34px);
+  color:var(--cream);
+  margin-top:8px;
+  font-variant-numeric:tabular-nums;
+  overflow-wrap:anywhere;
+}
+.stat .note{color:var(--cream);font-weight:600;font-size:14.5px;margin-top:8px;opacity:.75}
+
+/* ===== slurp-o-meter ===== */
+.slurp{
+  margin-top:52px;
+  background:var(--acid);
+  color:var(--ink);
+  border:3px solid var(--ink);
+  border-radius:22px;
+  box-shadow:0 0 50px rgba(205,240,46,.25), 8px 8px 0 var(--acid-deep);
+  padding:34px 24px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.slurp h3{font-size:clamp(26px,4vw,38px)}
+.slurp p{font-weight:700;margin-top:6px}
+.slurp .count{
+  font-family:"Lilita One",sans-serif;
+  font-size:clamp(44px,7vw,72px);
+  margin:14px 0 18px;
+  font-variant-numeric:tabular-nums;
+}
+.slurp .count.pop{animation:pop .25s ease}
+@keyframes pop{50%{transform:scale(1.25) rotate(-3deg)}}
+.btn.big{font-size:22px;padding:16px 34px;background:var(--ink);color:var(--acid);box-shadow:5px 5px 0 rgba(19,22,8,.35)}
+.float-txt{
+  position:absolute;
+  font-family:"Lilita One",sans-serif;
+  color:var(--ink);
+  pointer-events:none;
+  animation:rise 1.1s ease-out forwards;
+  font-size:22px;
+}
+@keyframes rise{from{opacity:1;transform:translateY(0) rotate(var(--r,0deg))}to{opacity:0;transform:translateY(-90px) rotate(var(--r,0deg))}}
+
+/* ===== how to buy ===== */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;counter-reset:step}
+.step{
+  background:var(--cream);
+  color:var(--ink);
+  border:3px solid var(--ink);
+  border-radius:18px;
+  padding:26px 24px 24px;
+  box-shadow:7px 7px 0 var(--ink);
+  min-width:0;
+  position:relative;
+}
+.step::before{
+  counter-increment:step;
+  content:counter(step);
+  position:absolute;
+  top:-16px;left:-10px;
+  width:40px;height:40px;
+  display:grid;place-items:center;
+  background:var(--ink);
+  color:var(--acid);
+  border:3px solid var(--acid);
+  border-radius:50%;
+  font-family:"Lilita One",sans-serif;
+  font-size:19px;
+  box-shadow:3px 3px 0 var(--acid-deep);
+}
+.step h3{font-size:20px;margin-bottom:8px}
+.step p{font-weight:600;font-size:15.5px}
+
+/* ===== noodlemap ===== */
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px}
+.phase{
+  background:var(--cream);
+  color:var(--ink);
+  border:3px solid var(--ink);
+  border-radius:18px;
+  padding:24px;
+  box-shadow:7px 7px 0 var(--ink);
+  min-width:0;
+}
+.phase .ph{
+  font-family:"Lilita One",sans-serif;
+  font-size:13px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--scallion);
+}
+.phase h3{font-size:24px;margin-top:6px}
+.phase ul{margin:12px 0 0;padding-left:20px;font-weight:600;font-size:15.5px}
+.phase li{margin-top:6px}
+.phase li.done::marker{content:"✅ "}
+.phase li::marker{content:"🍜 "}
+
+/* ===== footer ===== */
+.footer{background:var(--ink);color:var(--cream)}
+.footer .band-inner{padding-block:56px;text-align:center}
+.footer .mini{
+  width:150px;height:auto;
+  margin:0 auto 18px;
+  display:block;
+  filter:drop-shadow(0 0 26px rgba(205,240,46,.3));
+  animation:bob 5s ease-in-out infinite;
+}
+.footer h2{font-size:clamp(28px,4.5vw,42px);color:var(--acid)}
+.footer .disc{max-width:62ch;margin:18px auto 0;font-size:14px;font-weight:600;opacity:.65}
+.footer .sig{margin-top:26px;font-family:"Lilita One",sans-serif;letter-spacing:.08em;color:var(--acid-deep)}
+
+/* floating deco cats */
+.deco{position:absolute;opacity:.14;pointer-events:none;animation:bob 6s ease-in-out infinite;width:80px;height:auto}
+.on-acid .deco{opacity:.22}
+.rel{position:relative;overflow:hidden}
+
+/* toast */
+#toast{
+  position:fixed;
+  left:50%;
+  bottom:calc(24px + env(safe-area-inset-bottom, 0px));
+  transform:translateX(-50%) translateY(20px);
+  background:var(--ink);
+  color:var(--cream);
+  border:3px solid var(--acid);
+  border-radius:14px;
+  padding:12px 20px;
+  font-weight:700;
+  opacity:0;
+  transition:opacity .25s, transform .25s;
+  z-index:50;
+  max-width:min(90vw,420px);
+  text-align:center;
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media (max-width:760px){
+  .hero .band-inner{grid-template-columns:1fr;text-align:center;padding-block:48px}
+  .hero .tag{margin-inline:auto}
+  .btn-row,.ca-box{justify-content:center}
+  .badge-genesis{right:0}
+  .band-inner{padding-block:56px}
+}
+@media (prefers-reduced-motion:reduce){
+  .marquee .track,.mascot-main,.badge-genesis,.footer .mini,.deco{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== top marquee ===== -->
+<div class="marquee" aria-hidden="true"><div class="track" id="mq1"></div></div>
+
+<!-- ===== HERO ===== -->
+<header class="hero rel">
+  <img class="deco" src="noodlecat.png" alt="" style="top:8%;left:2%;transform:rotate(-14deg)">
+  <img class="deco" src="noodlecat.png" alt="" style="bottom:10%;left:7%;width:56px;animation-delay:-2s;transform:rotate(10deg) scaleX(-1)">
+  <img class="deco" src="noodlecat.png" alt="" style="top:12%;right:3%;width:64px;animation-delay:-4s;transform:rotate(18deg)">
+  <div class="band-inner">
+    <div>
+      <span class="eyebrow">★ Genesis #001 — the first token on Noodlez ★</span>
+      <h1>NOODLE<br>CAT</h1>
+      <div class="ticker"><b>$NOODLE</b></div>
+      <p class="tag">The first token ever cooked on Noodlez. <b>Everything after it is leftovers.</b></p>
+      <div class="ca-box">
+        <div class="ca-pill">
+          <span class="lbl">CA:</span>
+          <span class="val" id="caVal">SOON™ — still boiling</span>
+        </div>
+        <button class="btn cream" id="copyCa">COPY</button>
+      </div>
+      <div class="btn-row">
+        <button class="btn big" data-soon="Buy opens when the CA drops. Hold your chopsticks. 🥢">BUY $NOODLE</button>
+        <button class="btn ghost" data-soon="Telegram soon. The cat is typing… 🐱">TELEGRAM</button>
+        <button class="btn ghost" data-soon="X soon. The cat doesn't tweet before breakfast. ♨️">X / TWITTER</button>
+      </div>
+    </div>
+    <div class="mascot-wrap">
+      <img class="mascot-main" src="noodlecat.png" alt="NoodleCat — un chat en nouilles qui dort dans un bol de ramen" width="938" height="846">
+      <div class="badge-genesis">GENESIS #001</div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== LORE ===== -->
+<section class="on-acid rel">
+  <div class="band-inner">
+    <div class="sec-head">
+      <span class="eyebrow">The Lore</span>
+      <h2>First in the pot.</h2>
+      <p class="sub">No VCs. No presale. No survivors.</p>
+    </div>
+    <div class="lore-grid">
+      <div class="lore-card">
+        <span class="num">CHAPTER 1</span>
+        <img class="pic" src="noodlecat.png" alt="">
+        <h3>The Fall</h3>
+        <p>A cat fell into the pot. Skill issue.</p>
+      </div>
+      <div class="lore-card">
+        <span class="num">CHAPTER 2</span>
+        <img class="pic" src="noodlecat.png" alt="">
+        <h3>The Mutation</h3>
+        <p>It didn't die. It became noodles. Soft, smiling, unstoppable noodles.</p>
+      </div>
+      <div class="lore-card">
+        <span class="num">CHAPTER 3</span>
+        <img class="pic" src="noodlecat.png" alt="">
+        <h3>The Genesis</h3>
+        <p>Noodlez needed a token #001. The cat was already in the kitchen. Button pressed. History cooked.</p>
+      </div>
+      <div class="lore-card">
+        <span class="num">CHAPTER 4</span>
+        <img class="pic" src="noodlecat.png" alt="">
+        <h3>The Hunger</h3>
+        <p>Now it slurps green candles and naps on your chart. Feed it or watch it eat anyway.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== mid marquee ===== -->
+<div class="marquee dark" aria-hidden="true"><div class="track" id="mq2"></div></div>
+
+<!-- ===== NOODLENOMICS ===== -->
+<section class="on-dark rel">
+  <img class="deco" src="noodlecat.png" alt="" style="top:8%;right:4%;transform:rotate(12deg)">
+  <img class="deco" src="noodlecat.png" alt="" style="bottom:6%;left:3%;width:60px;animation-delay:-3s;transform:rotate(-10deg) scaleX(-1)">
+  <div class="band-inner">
+    <div class="sec-head">
+      <span class="eyebrow">Noodlenomics</span>
+      <h2>Zero utility.<br>One billion noodles.</h2>
+    </div>
+    <div class="stat-grid">
+      <div class="stat">
+        <div class="k">Total supply</div>
+        <div class="v">1,000,000,000</div>
+        <p class="note">One noodle for every future holder. Math checks out.</p>
+      </div>
+      <div class="stat">
+        <div class="k">Genesis</div>
+        <div class="v">#001</div>
+        <p class="note">The first token ever launched on Noodlez. Nobody takes that away.</p>
+      </div>
+      <div class="stat">
+        <div class="k">Liquidity</div>
+        <div class="v">BOILED 🔥</div>
+        <p class="note">Burnt. Gone. Al dente forever.</p>
+      </div>
+      <div class="stat">
+        <div class="k">Utility</div>
+        <div class="v">NONE</div>
+        <p class="note">It's a cat made of noodles, anon.</p>
+      </div>
+    </div>
+
+    <!-- slurp-o-meter -->
+    <div class="slurp" id="slurpBox">
+      <h3>THE SLURP-O-METER</h3>
+      <p>Feeding the cat does nothing. Neither does refreshing the chart. At least this one's fun.</p>
+      <div class="count" id="slurpCount">0</div>
+      <button class="btn big" id="slurpBtn">SLURP 🍜</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HOW TO BUY ===== -->
+<section class="on-acid">
+  <div class="band-inner">
+    <div class="sec-head">
+      <span class="eyebrow">How to buy</span>
+      <h2>Four steps. Zero excuses.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <h3>Get a wallet</h3>
+        <p>Seed phrase on paper. Not in your Notes app. Not even once.</p>
+      </div>
+      <div class="step">
+        <h3>Load the gas</h3>
+        <p>Send some gas money to your wallet. The broth isn't free.</p>
+      </div>
+      <div class="step">
+        <h3>Open Noodlez</h3>
+        <p>Find token #001. The one with the cat. You literally cannot miss the first one ever.</p>
+      </div>
+      <div class="step">
+        <h3>Slurp</h3>
+        <p>Paste the CA. Swap. Hold. Tell your group chat you were early for once.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NOODLEMAP ===== -->
+<section class="on-dark rel">
+  <img class="deco" src="noodlecat.png" alt="" style="top:10%;left:2%;width:70px;transform:rotate(-16deg)">
+  <img class="deco" src="noodlecat.png" alt="" style="bottom:8%;right:4%;width:56px;animation-delay:-2.5s;transform:rotate(14deg) scaleX(-1)">
+  <div class="band-inner">
+    <div class="sec-head">
+      <span class="eyebrow">The Noodlemap</span>
+      <h2>Road to al dente.</h2>
+      <p class="sub">A roadmap, but cooked.</p>
+    </div>
+    <div class="phases">
+      <div class="phase">
+        <div class="ph">Phase 1</div>
+        <h3>BOIL</h3>
+        <ul>
+          <li class="done">Cat falls into pot</li>
+          <li class="done">Become the first token ever on Noodlez</li>
+          <li>CA reveal</li>
+          <li>Launch day slurpfest</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="ph">Phase 2</div>
+        <h3>SLURP</h3>
+        <ul>
+          <li>1,000 noodle holders</li>
+          <li>Meme arsenal deployed</li>
+          <li>Telegram stickers that slap</li>
+          <li>Community slurp raids</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="ph">Phase 3</div>
+        <h3>OVERCOOK</h3>
+        <ul>
+          <li>Trending on every feed</li>
+          <li>Normies discover the cat</li>
+          <li>Noodlez flagship status</li>
+          <li>Your barber asks about $NOODLE</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <div class="ph">Phase 4</div>
+        <h3>NOODLE MOON</h3>
+        <ul>
+          <li>Moon (made of mochi)</li>
+          <li>Ramen for everyone</li>
+          <li>Cat retires to a hot spring</li>
+          <li>We never stop slurping</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== bottom marquee ===== -->
+<div class="marquee" aria-hidden="true"><div class="track" id="mq3"></div></div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="band-inner">
+    <img class="mini" src="noodlecat.png" alt="">
+    <h2>NOODLECAT — $NOODLE</h2>
+    <p style="font-weight:700;margin-top:8px">Genesis Token #001 on Noodlez. First in the pot. First forever.</p>
+    <p class="disc">$NOODLE is a memecoin with no intrinsic value, no utility, and no expectation of financial return. It is, quite literally, a cat made of noodles. Nothing on this page is financial advice. Do your own research, slurp responsibly, and never invest more broth than you can afford to spill.</p>
+    <p class="sig">© 2026 NOODLECAT · POWERED BY BROTH ♨️</p>
+  </div>
+</footer>
+
+<div id="toast" role="status"></div>
+
+<script>
+// ===== the one thing to edit when the CA drops =====
+const CONTRACT_ADDRESS = ""; // paste the CA here
+
+const catIcon = '<img src="noodlecat.png" alt="">';
+const mqText = ['$NOODLE','GENESIS #001','FIRST TOKEN ON NOODLEZ','SLURP OR NGMI','POWERED BY BROTH','CA: SOON™'];
+function fillMarquee(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  let strip = '';
+  for(const t of mqText){ strip += '<span>'+t+'</span>'+catIcon; }
+  el.innerHTML = strip + strip + strip + strip; // duplicated for seamless loop
+}
+['mq1','mq2','mq3'].forEach(fillMarquee);
+
+// toast
+let toastTimer;
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+}
+
+// CA display + copy
+const caVal = document.getElementById('caVal');
+if(CONTRACT_ADDRESS){ caVal.textContent = CONTRACT_ADDRESS; }
+document.getElementById('copyCa').addEventListener('click', ()=>{
+  if(!CONTRACT_ADDRESS){
+    toast('CA drops soon, anon. The pot is still boiling. 🍲');
+    return;
+  }
+  navigator.clipboard.writeText(CONTRACT_ADDRESS).then(
+    ()=>toast('CA copied. Now go slurp. 🍜'),
+    ()=>{ // fallback: select the text
+      const r = document.createRange();
+      r.selectNodeContents(caVal);
+      const s = getSelection();
+      s.removeAllRanges(); s.addRange(r);
+      toast('Copy blocked — CA selected, hit Ctrl/Cmd+C.');
+    }
+  );
+});
+
+// "soon" buttons
+document.querySelectorAll('[data-soon]').forEach(b=>{
+  b.addEventListener('click', ()=>toast(b.dataset.soon));
+});
+
+// slurp-o-meter
+let slurps = 0;
+try{ slurps = parseInt(localStorage.getItem('noodle-slurps')||'0',10)||0 }catch(e){}
+const countEl = document.getElementById('slurpCount');
+const box = document.getElementById('slurpBox');
+countEl.textContent = slurps.toLocaleString('en-US');
+const milestones = {10:'Certified slurper. 🏅',42:'The answer is noodles.',69:'Nice. 🍜',100:'Century slurp! The cat purrs.',420:'Maximum broth achieved.',1000:'You are the noodle now.'};
+document.getElementById('slurpBtn').addEventListener('click', (e)=>{
+  slurps++;
+  try{ localStorage.setItem('noodle-slurps', String(slurps)) }catch(err){}
+  countEl.textContent = slurps.toLocaleString('en-US');
+  countEl.classList.remove('pop'); void countEl.offsetWidth; countEl.classList.add('pop');
+  const f = document.createElement('div');
+  f.className = 'float-txt';
+  f.textContent = ['SLURP!','NOM','MIAM','🍜','♨️','GLOUP'][Math.floor(Math.random()*6)];
+  const r = box.getBoundingClientRect();
+  f.style.left = (e.clientX - r.left + (Math.random()*40-20)) + 'px';
+  f.style.top  = (e.clientY - r.top - 20) + 'px';
+  f.style.setProperty('--r', (Math.random()*40-20)+'deg');
+  box.appendChild(f);
+  setTimeout(()=>f.remove(), 1200);
+  if(milestones[slurps]) toast(milestones[slurps]);
+});
+</script>
+</body>
+</html>
